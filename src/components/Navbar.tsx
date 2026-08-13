@@ -61,11 +61,11 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div 
-        className={`lg:hidden fixed inset-0 z-40 bg-brand-black/98 backdrop-blur-3xl transition-all duration-500 ease-in-out ${
+        className={`lg:hidden fixed inset-0 z-40 bg-brand-black/98 backdrop-blur-3xl transition-all duration-500 ease-in-out flex flex-col ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
         } pt-28`}
       >
-        <div className="flex flex-col px-8 py-8 space-y-8 h-full overflow-y-auto">
+        <div className="flex flex-col px-8 py-8 space-y-8">
           {[
             ['Tentang Kami', '#tentang'],
             ['Fokus Layanan', '#layanan'],

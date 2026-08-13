@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="id"
       className={`${inter.variable} ${playfair.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-brand-light flex flex-col font-sans text-brand-black selection:bg-brand-gold selection:text-white">
+      <body className="min-h-screen bg-brand-light flex flex-col font-sans text-brand-black selection:bg-brand-gold selection:text-white overflow-x-hidden">
         {children}
       </body>
     </html>
