@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Services from '@/components/Services';
 import ContactForm from '@/components/ContactForm';
+import Testimonials from '@/components/Testimonials';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import Image from 'next/image';
@@ -185,6 +186,9 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      {/* 5.5 TESTIMONI */}
+      <Testimonials />
 
       {/* 6. BERITA - Simple Cards */}
       <section id="berita" className="py-24 bg-[#111]">
