@@ -15,6 +15,8 @@ export const metadata = {
   description: 'Biro jasa legal, perizinan, dan administrasi pertanahan terpercaya di Jabodetabek.',
 };
 
+export const revalidate = 0;
+
 export default async function Home() {
   const activities = await prisma.activity.findMany({
     orderBy: { date: 'desc' },
@@ -24,6 +26,11 @@ export default async function Home() {
   const announcements = await prisma.announcement.findMany({
     orderBy: { date: 'desc' },
     take: 3
+  });
+
+  const testimonials = await prisma.testimonial.findMany({
+    orderBy: { createdAt: 'desc' },
+    take: 6
   });
 
   return (
@@ -188,7 +195,7 @@ export default async function Home() {
       </section>
 
       {/* 5.5 TESTIMONI */}
-      <Testimonials />
+      <Testimonials testimonials={testimonials} />
 
       {/* 6. BERITA - Simple Cards */}
       <section id="berita" className="py-24 bg-[#111]">

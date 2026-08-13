@@ -131,6 +131,76 @@ export default function DashboardPage() {
               </button>
             </form>
           </div>
+
+          {/* Form Upload Testimoni */}
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 md:col-span-2 lg:col-span-1">
+            <h2 className="text-xl font-bold mb-4">Tambahkan Ulasan Klien</h2>
+            <form id="testimonial-form" className="space-y-4" onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.target as HTMLFormElement;
+              const fd = new FormData(form);
+              
+              let imageUrl = null;
+              const file = fd.get('image') as File;
+              if (file && file.size > 0) {
+                const uploadFd = new FormData();
+                uploadFd.append('file', file);
+                const res = await fetch('/api/upload', { method: 'POST', body: uploadFd });
+                const json = await res.json();
+                imageUrl = json.url;
+              }
+              
+              const data = {
+                name: fd.get('name'),
+                role: fd.get('role'),
+                content: fd.get('content'),
+                rating: fd.get('rating'),
+                mapsLink: fd.get('mapsLink'),
+                imageUrl
+              };
+              
+              const submitRes = await fetch('/api/testimonials', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+              });
+              
+              if (submitRes.ok) {
+                alert('Testimoni berhasil ditambahkan!');
+                form.reset();
+              }
+            }}>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-1">Nama Klien</label>
+                  <input name="name" required type="text" className="w-full px-3 py-2 border rounded" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">Rating (1-5)</label>
+                  <input name="rating" type="number" min="1" max="5" defaultValue="5" required className="w-full px-3 py-2 border rounded" />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Peran / Jabatan (Opsional)</label>
+                <input name="role" type="text" placeholder="Contoh: Klien Personal" className="w-full px-3 py-2 border rounded" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Isi Ulasan</label>
+                <textarea name="content" required className="w-full px-3 py-2 border rounded" rows={3}></textarea>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Link Google Maps</label>
+                <input name="mapsLink" type="url" placeholder="https://maps.app.goo.gl/..." className="w-full px-3 py-2 border rounded" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Screenshot / Foto (Opsional)</label>
+                <input name="image" type="file" accept="image/*" className="w-full px-3 py-2 border rounded" />
+              </div>
+              <button type="submit" className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
+                Simpan Ulasan
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
