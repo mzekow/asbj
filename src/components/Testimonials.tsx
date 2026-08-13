@@ -1,5 +1,3 @@
-import { Star } from 'lucide-react';
-
 import { Star, MapPin } from 'lucide-react';
 import Image from 'next/image';
 
