@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import Services from '@/components/Services';
+import ContactForm from '@/components/ContactForm';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import Image from 'next/image';
@@ -256,34 +257,7 @@ export default async function Home() {
             </div>
             
             <div className="lg:w-2/3 border-t lg:border-t-0 lg:border-l border-white/10 pt-10 lg:pt-0 lg:pl-12">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2">Nama Lengkap</label>
-                    <input type="text" className="w-full bg-[#1a1a1a] border border-white/10 text-white text-sm px-4 py-3 rounded-sm focus:border-brand-gold outline-none transition-colors" />
-                  </div>
-                  <div>
-                    <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2">No. WhatsApp</label>
-                    <input type="tel" className="w-full bg-[#1a1a1a] border border-white/10 text-white text-sm px-4 py-3 rounded-sm focus:border-brand-gold outline-none transition-colors" />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2">Kebutuhan Layanan</label>
-                  <select defaultValue="" className="w-full bg-[#1a1a1a] border border-white/10 text-white text-sm px-4 py-3 rounded-sm focus:border-brand-gold outline-none transition-colors">
-                    <option value="" disabled hidden>Pilih Kategori...</option>
-                    <option>Sertipikat & Pertanahan</option>
-                    <option>Badan Usaha & Izin Khusus</option>
-                    <option>Lainnya</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2">Pesan Tambahan</label>
-                  <textarea rows={3} className="w-full bg-[#1a1a1a] border border-white/10 text-white text-sm px-4 py-3 rounded-sm focus:border-brand-gold outline-none transition-colors resize-none"></textarea>
-                </div>
-                <button type="button" className="bg-brand-gold text-brand-black w-full py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-white transition-colors rounded-sm">
-                  Kirim Permintaan
-                </button>
-              </form>
+              <ContactForm />
             </div>
 
           </div>
