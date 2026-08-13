@@ -17,12 +17,12 @@ export default function WhatsAppButton() {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative flex items-center justify-center bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#128C7E] hover:scale-110 transition-all duration-300 border-2 border-white/20"
+        className="relative flex items-center justify-center bg-[#25D366] text-white px-5 py-3.5 rounded-full shadow-2xl hover:bg-[#128C7E] hover:scale-105 transition-all duration-300 border border-white/20"
         aria-label="Chat WhatsApp"
       >
-        <MessageCircle className="w-7 h-7" />
-        <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-3 font-medium text-sm tracking-wide transition-all duration-300 ease-in-out">
-          Konsultasi Sekarang
+        <MessageCircle className="w-6 h-6 mr-2" />
+        <span className="font-semibold text-sm tracking-wide">
+          Konsultasi
         </span>
       </a>
     </div>
