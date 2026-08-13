@@ -23,7 +23,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center space-x-10 lg:space-x-12">
+          <div className="hidden lg:flex items-center space-x-10 lg:space-x-12">
             {[
               ['Tentang', '#tentang'],
               ['Layanan', '#layanan'],
@@ -41,7 +41,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center z-50">
+          <div className="lg:hidden flex items-center relative z-50">
             <button 
               onClick={() => setIsOpen(!isOpen)} 
               className="text-white hover:text-brand-gold focus:outline-none transition-colors"
@@ -61,11 +61,11 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div 
-        className={`md:hidden fixed inset-0 bg-brand-black/95 backdrop-blur-2xl transition-transform duration-500 ease-in-out ${
-          isOpen ? 'translate-y-0' : '-translate-y-full'
-        } pt-24`}
+        className={`lg:hidden fixed inset-0 z-40 bg-brand-black/98 backdrop-blur-3xl transition-all duration-500 ease-in-out ${
+          isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
+        } pt-28`}
       >
-        <div className="flex flex-col px-6 py-8 space-y-8">
+        <div className="flex flex-col px-8 py-8 space-y-8 h-full overflow-y-auto">
           {[
             ['Tentang Kami', '#tentang'],
             ['Fokus Layanan', '#layanan'],
@@ -76,7 +76,7 @@ export default function Navbar() {
               key={label} 
               href={href} 
               onClick={() => setIsOpen(false)}
-              className="text-xl font-serif text-gray-200 hover:text-brand-gold border-b border-white/5 pb-4 transition-colors"
+              className="text-2xl font-serif text-gray-200 hover:text-brand-gold border-b border-white/10 pb-6 transition-colors"
             >
               {label}
             </Link>
@@ -84,7 +84,7 @@ export default function Navbar() {
           <Link 
             href="#kontak" 
             onClick={() => setIsOpen(false)}
-            className="inline-flex items-center justify-center px-8 py-4 bg-brand-gold text-brand-black text-xs font-bold uppercase tracking-widest mt-8"
+            className="inline-flex items-center justify-center px-8 py-5 bg-brand-gold text-brand-black text-sm font-bold uppercase tracking-widest mt-8"
           >
             Mulai Konsultasi
           </Link>
